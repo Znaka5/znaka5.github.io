@@ -20,6 +20,8 @@ function square(n) {
     console.log(row1);
     for (let j = 1; j <= n - 2; j++) {
         result += row2;
+       
+
     }
     result += row1;
     return result;
