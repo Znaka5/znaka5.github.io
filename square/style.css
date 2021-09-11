@@ -1,0 +1,12 @@
+button {
+    color:black;
+    background-color: rgb(128, 255, 0);
+}
+
+#square {
+    color: rgba(0, 255, 128, 0.76);
+    font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin-left: 35px;
+    margin-top: 25px;
+}
