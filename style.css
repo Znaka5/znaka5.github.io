@@ -1,4 +1,11 @@
-button {
-    color: aqua;
-    background-color: chartreuse;
+body {
+    background-color: rgb(42, 214, 240);
 }
+a {
+    color: rgb(254, 254, 249);
+    font-style: oblique;
+    margin: 8px;
+    font-size: 35px;
+    
+}
+
