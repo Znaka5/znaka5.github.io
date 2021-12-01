@@ -30,11 +30,12 @@ function profit(input) {
                     for (let l = a4; l <= b4; l++) {
                         if (i % 2 !== 0 && j % 2 !== 0 && k % 2 !== 0  && h % 2 !== 0 && l % 2 !== 0) {
                             sum = sum +i+j+k+h+l+' '
+                            console.log(sum)
                         }
                     }
                 }
             }
         }
     }
-    alert(`Ur tps code is: ${a1}${b4}${a3}${b1}`)
+    console.log(sum)
 }
