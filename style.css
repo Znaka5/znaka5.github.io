@@ -1,11 +1,13 @@
-body {
-    background-color: rgb(42, 214, 240);
+body{
+    background-color: rgb(0, 0, 0);
 }
-a {
-    color: rgb(254, 254, 249);
-    font-style: oblique;
-    margin: 8px;
-    font-size: 35px;
-    
+#input{
+    color: rgba(55, 255, 37, 0.76);
 }
-
+#input{
+    color: rgba(55, 255, 37, 0.76);
+}
+#button{
+    background-color: green;
+    color: rgb(0, 0, 0);
+}
