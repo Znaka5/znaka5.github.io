@@ -1,7 +1,7 @@
 let inputL = document.getElementById("input")
 let squareEl = document.getElementById("enter")
 
-function profit(input) {
+function script(input) {
      let n = Number(inputL.value)
      let c = Number(squareEl.value)
     if (!n && !c) {
