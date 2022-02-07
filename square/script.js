@@ -1,6 +1,6 @@
-let commandInput = documen.getElementById("command")
 
 function reader() {
+    let commandInput = document.getElementById("command")
     let n = commandInput.Value
     let Input = ""
     if (n === "load reader.exe") {
@@ -51,12 +51,11 @@ function reader() {
             BSOD = true
             Input += "your system ran into a problem failed to load file btt.fgh..."
         }
-    }
-    else {
+    }else {
         alert(`${n} is not a command`)
         commandInput = ""
     }
-    let a = documen.getElementById("sum").innerHTML(Input)
+    let a = document.getElementById("sum").innerHTML(Input)
 
 
 }
