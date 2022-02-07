@@ -8,3 +8,7 @@ body{
     color:limegreen;
     border-color: black;
 }
+button{
+    background-color: black;
+    color: limegreen;
+}
