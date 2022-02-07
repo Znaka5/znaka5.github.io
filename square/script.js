@@ -56,7 +56,7 @@ function reader() {
         alert(`${n} is not a command`)
         commandInput = ""
     }
-    let a = documen.getElementById("commands").innerHTML(Input)
+    let a = documen.getElementById("sum").innerHTML(Input)
 
 
 }
