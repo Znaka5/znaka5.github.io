@@ -12,8 +12,9 @@ button{
     background-color: black;
     color: limegreen;
     border-color: black;
+    padding-top: 0px;
 }
 #sum{
     color: limegreen;
-    padding-bottom: 25px;
+    padding-bottom: 50px;
 }
