@@ -1,0 +1,38 @@
+body {
+    background-color: #67cbf3cb;
+}
+
+#text {
+    color: #084057cb;
+    text-align: center;
+    font-size: 30px;
+}
+#container {
+    display: inline-block;
+    margin-left: 50px;
+    width: 1800px;
+	height: 950px;
+	background: rgb(6, 181, 204);
+    color: #084057cb;
+    overflow: auto;
+}
+
+button {
+    background-color: rgb(20, 197, 241);
+    border-color: #084057cb;
+    text-align: center;
+    color: #08384bcb;
+    font-size: 25px;
+}
+
+video {
+    display: inline-block;
+    height: 400px;
+    width: 400px;
+}
+
+img {
+    display: inline-block;
+    height: 300px;
+    width: 400px;
+}
