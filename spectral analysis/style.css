@@ -11,7 +11,7 @@ body {
     display: inline-block;
     margin-left: 50px;
     width: 1800px;
-	height: auto;
+	height: fit-content;
 	background: rgb(6, 181, 204);
     color: #084057cb;
     overflow: auto;
