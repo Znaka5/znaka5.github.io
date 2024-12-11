@@ -1,21 +1,5 @@
 import { render, html } from "../node_modules/lit-html/lit-html.js"
 
-const template = (index, data, submit, next, back) => html`
-<div id="container" style="opacity: 0;">
-     ${data.img1 === '' ? '' : html`<img src=${data.img1}>`}
-     ${data.img2 === '' ? '' : html`<img src=${data.img2}>`}
-     ${data.img3 === '' || data.img3 === undefined ? '' : html`<img src=${data.img3}>`}
-     ${data.video === '' ? '' : html`<video src=${data.video} type="video/mp4" controls=""></video>`}
-
-     <div id="text">
-        ${data.text}
-     </div>
-     <button id="translate" @click=${submit}>Translate</button>
-
-      ${index > 0 && index < 6 ? html`<button id="next" @click=${next}>Next</button> 
-        <button id="back" @click=${back}>Back</button>` : index >= 6 ? html`<button id="back" @click=${back}>Back</button>` : html`<button id="next" @click=${next}>Next</button>`}
-</div>
-`
 
 let index = 0
 let slides = [
@@ -151,6 +135,22 @@ Applications: Widely used in forensic science, environmental monitoring, and pha
 let counter = 0
 function renderer() {
     const currentSlide = slides[index]
+    const template = (index, data, submit, next, back) => html`
+<div id="container" style="opacity: 0;">
+     ${data.img1 === '' ? '' : html`<img src=${data.img1}>`}
+     ${data.img2 === '' ? '' : html`<img src=${data.img2}>`}
+     ${data.img3 === '' || data.img3 === undefined ? '' : html`<img src=${data.img3}>`}
+     ${data.video === '' ? '' : html`<video src=${data.video} type="video/mp4" controls=""></video>`}
+
+     <div id="text">
+        ${data.text}
+     </div>
+     <button id="translate" @click=${submit}>Translate</button>
+
+      ${index > 0 && index < 6 ? html`<button id="next" @click=${next}>Next</button> 
+        <button id="back" @click=${back}>Back</button>` : index >= 6 ? html`<button id="back" @click=${back}>Back</button>` : html`<button id="next" @click=${next}>Next</button>`}
+</div>
+`
     render(template(index, currentSlide, onClick, next, back), document.querySelector("main"))
 
     $(document).on('renderComplete', () => {
