@@ -151,6 +151,7 @@ function renderer() {
     document.getElementById("container").style.opacity = 0
 
     render(template(index, currentSlide, onClick, next, back), document.querySelector("#container"))
+    onClick()
 
     $(document).one('renderComplete', () => {
         $('#container').animate({ opacity: 1 }, 1000);
@@ -173,8 +174,7 @@ function next(ev) {
     renderer()
 }
 
-function onClick(ev) {
-    ev.preventDefault()
+function onClick() {
     if (counter % 2 === 0) {
         slides = [
             { //introduction page
