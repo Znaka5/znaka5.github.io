@@ -141,7 +141,7 @@ Applications: Widely used in forensic science, environmental monitoring, and pha
         img1: '',
         img2: '',
         video: '',
-        text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:532 , JS:465, HTML:19, CSS:48",
+        text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:623 , JS:556, HTML:19, CSS:48",
     },
 ]
 
@@ -151,7 +151,35 @@ function renderer() {
     const currentSlide = slides[index]
     document.getElementById("container").style.opacity = 0
 
+    console.log(language === '' )
     render(template(index, currentSlide, onClick, next, back), document.querySelector("#container"))
+    if (language === '' || language === 'EN') {
+        document.getElementById("translate").textContent = "translate"
+
+        if (index < 6) {
+        document.getElementById("next").textContent = "next"
+        }
+        if (index > 0) {
+            document.getElementById("back").textContent = "back"
+        }
+        if (index >= 6) {
+            document.getElementById("source").textContent = "source code"
+        }
+    } else if (language === "BG") {
+        document.getElementById("tittle").textContent = "Спектрален анализ"
+        document.getElementById("heading").textContent = "Спектрален анализ"
+        document.getElementById("translate").textContent = "преведи"
+
+        if (index < 6) {
+        document.getElementById("next").textContent = "напред"
+        }
+        if (index > 0) {
+            document.getElementById("back").textContent = "назад"
+        }
+        if (index >= 6) {
+            document.getElementById("source").textContent = "изходен код"
+        }
+    }
 
     $(document).one('renderComplete', () => {
         $('#container').animate({ opacity: 1 }, 1000);
@@ -163,25 +191,30 @@ function renderer() {
 function back(ev) {
     ev.preventDefault()
     if (language === '' || language === 'EN') {
+        document.getElementById("translate").textContent = "translate"
+
+        if (index < 6) {
+        document.getElementById("next").textContent = "next"
+        }
+        if (index > 0) {
+            document.getElementById("back").textContent = "back"
+        }
+        if (index >= 6) {
+            document.getElementById("source").textContent = "source code"
+        }
+    } else if (language === "BG") {
+        document.getElementById("tittle").textContent = "Спектрален анализ"
+        document.getElementById("heading").textContent = "Спектрален анализ"
         document.getElementById("translate").textContent = "преведи"
+
+        if (index < 6) {
         document.getElementById("next").textContent = "напред"
+        }
         if (index > 0) {
             document.getElementById("back").textContent = "назад"
         }
         if (index >= 6) {
             document.getElementById("source").textContent = "изходен код"
-        }
-    } else {
-        document.getElementById("tittle").textContent = "spectral analysis"
-        document.getElementById("heading").textContent = "Spectral analysis"
-        document.getElementById("translate").textContent = "translate"
-        document.getElementById("next").textContent = "next"
-        if (index > 0) {
-            document.getElementById("back").textContent = "back"
-        }
-
-        if (index >= 6) {
-            document.getElementById("source").textContent = "source code"
         }
     }
     index--
@@ -192,25 +225,29 @@ function back(ev) {
 function next(ev) {
     ev.preventDefault()
     if (language === '' || language === 'EN') {
+        document.getElementById("translate").textContent = "translate"
+
+        if (index < 6) {
+        document.getElementById("next").textContent = "next"
+        }
+        if (index > 0) {
+            document.getElementById("back").textContent = "back"
+        }
+        if (index >= 6) {
+            document.getElementById("source").textContent = "source code"
+        }
+    } else if (language === "BG") {
+        document.getElementById("tittle").textContent = "Спектрален анализ"
+        document.getElementById("heading").textContent = "Спектрален анализ"
         document.getElementById("translate").textContent = "преведи"
+        if (index < 6) {
         document.getElementById("next").textContent = "напред"
+        }
         if (index > 0) {
             document.getElementById("back").textContent = "назад"
         }
         if (index >= 6) {
             document.getElementById("source").textContent = "изходен код"
-        }
-    } else {
-        document.getElementById("tittle").textContent = "spectral analysis"
-        document.getElementById("heading").textContent = "Spectral analysis"
-        document.getElementById("translate").textContent = "translate"
-        document.getElementById("next").textContent = "next"
-        if (index > 0) {
-            document.getElementById("back").textContent = "back"
-        }
-
-        if (index >= 6) {
-            document.getElementById("source").textContent = "source code"
         }
     }
     index++
@@ -339,14 +376,17 @@ function onClick() {
                 img1: '',
                 img2: '',
                 video: '',
-                text: "Благодаря ви, че гледахте!!! Източници: Wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics кодове на линиите:532 , JS:465, HTML:19, CSS:48",
+                text: "Благодаря ви, че гледахте!!! Източници: Wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics кодове на линиите:623 , JS:556, HTML:19, CSS:48",
             },
         ]
 
         document.getElementById("tittle").textContent = "Спектрален анализ"
         document.getElementById("heading").textContent = "Спектрален анализ"
         document.getElementById("translate").textContent = "преведи"
+
+        if (index < 6) {
         document.getElementById("next").textContent = "напред"
+        }
         if (index > 0) {
             document.getElementById("back").textContent = "назад"
         }
@@ -482,14 +522,18 @@ function onClick() {
                 img1: '',
                 img2: '',
                 video: '',
-                text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:532 , JS:465, HTML:19, CSS:48",
+                text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:623 , JS:556, HTML:19, CSS:48",
             },
         ]
 
         document.getElementById("tittle").textContent = "spectral analysis"
         document.getElementById("heading").textContent = "Spectral analysis"
         document.getElementById("translate").textContent = "translate"
+
+        if (index < 6) {
         document.getElementById("next").textContent = "next"
+        }
+
         if (index > 0) {
             document.getElementById("back").textContent = "back"
         }
