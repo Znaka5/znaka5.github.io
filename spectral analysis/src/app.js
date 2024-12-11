@@ -150,8 +150,8 @@ function renderer() {
     const currentSlide = slides[index]
     document.getElementById("container").style.opacity = 0
 
-    render(template(index, currentSlide, onClick, next, back), document.querySelector("#container"))
     onClick()
+    render(template(index, currentSlide, onClick, next, back), document.querySelector("#container"))
 
     $(document).one('renderComplete', () => {
         $('#container').animate({ opacity: 1 }, 1000);
