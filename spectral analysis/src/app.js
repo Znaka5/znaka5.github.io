@@ -1,5 +1,18 @@
 import { render, html } from "../node_modules/lit-html/lit-html.js"
 
+const template = (index, data, submit, next, back) => html`
+     ${data.img1 === '' ? '' : html`<img src=${data.img1}>`}
+     ${data.img2 === '' ? '' : html`<img src=${data.img2}>`}
+     ${data.img3 === '' || data.img3 === undefined ? '' : html`<img src=${data.img3}>`}
+     ${data.video === '' ? '' : html`<video src=${data.video} type="video/mp4" controls=""></video>`}
+
+     <div id="text">
+        ${data.text}
+     </div>
+     <button id="translate" @click=${submit}>Translate</button>
+      ${index > 0 && index < 6 ? html`<button id="next" @click=${{handleEvent: next, once: false}}>Next</button> 
+        <button id="back" @click=${{handleEvent: back, once: false}}>Back</button>` : index >= 6 ? html`<button id="back" @click=${{handleEvent: back, once: false}}>Back</button> <a href="code vizualizer/vizualize.html" id="source">source code</a>` : html`<button id="next" @click=${{handleEvent: next, once: false}}>Next</button>`}
+`
 
 let index = 0
 let slides = [
@@ -128,44 +141,33 @@ Applications: Widely used in forensic science, environmental monitoring, and pha
         img1: '',
         img2: '',
         video: '',
-        text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code: 555 , JS:449, HTML:17, CSS:39",
+        text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:519 , JS:452, HTML:19, CSS:48",
     },
 ]
 
 let counter = 0
 function renderer() {
     const currentSlide = slides[index]
-    const template = (index, data, submit, next, back) => html`
-<div id="container" style="opacity: 0;">
-     ${data.img1 === '' ? '' : html`<img src=${data.img1}>`}
-     ${data.img2 === '' ? '' : html`<img src=${data.img2}>`}
-     ${data.img3 === '' || data.img3 === undefined ? '' : html`<img src=${data.img3}>`}
-     ${data.video === '' ? '' : html`<video src=${data.video} type="video/mp4" controls=""></video>`}
+    document.getElementById("container").style.opacity = 0
 
-     <div id="text">
-        ${data.text}
-     </div>
-     <button id="translate" @click=${submit}>Translate</button>
+    render(template(index, currentSlide, onClick, next, back), document.querySelector("#container"))
 
-      ${index > 0 && index < 6 ? html`<button id="next" @click=${next}>Next</button> 
-        <button id="back" @click=${back}>Back</button>` : index >= 6 ? html`<button id="back" @click=${back}>Back</button>` : html`<button id="next" @click=${next}>Next</button>`}
-</div>
-`
-    render(template(index, currentSlide, onClick, next, back), document.querySelector("main"))
-
-    $(document).on('renderComplete', () => {
+    $(document).one('renderComplete', () => {
         $('#container').animate({ opacity: 1 }, 1000);
+        document.getElementById("container").style.opacity = 1
     });
-    setTimeout(() => $(document).trigger('renderComplete'), 0);
+    setTimeout(() => $(document).trigger('renderComplete'), 0)
 }
 
 function back() {
     index--
+    document.getElementById("container").style.opacity = 0
     renderer()
 }
 
 function next() {
     index++
+    document.getElementById("container").style.opacity = 0
     renderer()
 }
 
@@ -290,7 +292,7 @@ function onClick() {
                 img1: '',
                 img2: '',
                 video: '',
-                text: "Благодаря ви, че гледахте!!! Източници: Wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics кодове на линиите: 555 , JS:449, HTML:17, CSS:39",
+                text: "Благодаря ви, че гледахте!!! Източници: Wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics кодове на линиите: 555 , JS:452, HTML:19, CSS:48",
             },
         ]
 
@@ -299,8 +301,8 @@ function onClick() {
         document.getElementById("translate").textContent = "преведи"
         document.getElementById("next").textContent = "напред"
         document.getElementById("back").textContent = "назад"
+        document.getElementById("source").textContent = "изходен код"
     } else {
-
         slides = [
             { //introduction page
                 img1: '',
@@ -427,7 +429,7 @@ function onClick() {
                 img1: '',
                 img2: '',
                 video: '',
-                text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code: 555 , JS:449, HTML:17, CSS:39",
+                text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:519 , JS:452, HTML:19, CSS:48",
             },
         ]
 
@@ -436,6 +438,7 @@ function onClick() {
         document.getElementById("translate").textContent = "translate"
         document.getElementById("next").textContent = "next"
         document.getElementById("back").textContent = "back"
+        document.getElementById("source").textContent = "source code"
     }
 
     renderer()

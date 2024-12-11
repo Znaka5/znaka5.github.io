@@ -8,7 +8,6 @@ body {
     font-size: 30px;
 }
 #container {
-    display: inline-block;
     margin-left: 50px;
     width: 1800px;
 	height: fit-content;
@@ -35,6 +34,12 @@ img {
     display: inline-block;
     height: 300px;
     width: 400px;
+}
+
+#source {
+    color: #084057cb;
+    text-align: center;
+    font-size: 30px;
 }
 
 #heading {
