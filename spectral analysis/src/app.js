@@ -141,7 +141,7 @@ Applications: Widely used in forensic science, environmental monitoring, and pha
         img1: '',
         img2: '',
         video: '',
-        text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:519 , JS:452, HTML:19, CSS:48",
+        text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:532 , JS:465, HTML:19, CSS:48",
     },
 ]
 
@@ -159,19 +159,22 @@ function renderer() {
     setTimeout(() => $(document).trigger('renderComplete'), 0)
 }
 
-function back() {
+function back(ev) {
+    ev.preventDefault()
     index--
     document.getElementById("container").style.opacity = 0
     renderer()
 }
 
-function next() {
+function next(ev) {
+    ev.preventDefault()
     index++
     document.getElementById("container").style.opacity = 0
     renderer()
 }
 
-function onClick() {
+function onClick(ev) {
+    ev.preventDefault()
     if (counter % 2 === 0) {
         slides = [
             { //introduction page
@@ -292,7 +295,7 @@ function onClick() {
                 img1: '',
                 img2: '',
                 video: '',
-                text: "Благодаря ви, че гледахте!!! Източници: Wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics кодове на линиите: 555 , JS:452, HTML:19, CSS:48",
+                text: "Благодаря ви, че гледахте!!! Източници: Wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics кодове на линиите:532 , JS:465, HTML:19, CSS:48",
             },
         ]
 
@@ -300,8 +303,13 @@ function onClick() {
         document.getElementById("heading").textContent = "Спектрален анализ"
         document.getElementById("translate").textContent = "преведи"
         document.getElementById("next").textContent = "напред"
-        document.getElementById("back").textContent = "назад"
-        document.getElementById("source").textContent = "изходен код"
+        if (index > 0) {
+            document.getElementById("back").textContent = "назад"
+        }
+        if (index >= 6) {
+             document.getElementById("source").textContent = "изходен код"
+        }
+       
     } else {
         slides = [
             { //introduction page
@@ -429,7 +437,7 @@ function onClick() {
                 img1: '',
                 img2: '',
                 video: '',
-                text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:519 , JS:452, HTML:19, CSS:48",
+                text: "thanks for watching!!! recources: wikipedia, lit-html, jQuery, @Physics Demos, @Physics4students, @Jan visual physics lines of code:532 , JS:465, HTML:19, CSS:48",
             },
         ]
 
@@ -437,8 +445,13 @@ function onClick() {
         document.getElementById("heading").textContent = "Spectral analysis"
         document.getElementById("translate").textContent = "translate"
         document.getElementById("next").textContent = "next"
-        document.getElementById("back").textContent = "back"
-        document.getElementById("source").textContent = "source code"
+        if (index > 0) {
+            document.getElementById("back").textContent = "back"
+        }
+
+        if (index >= 6) {
+            ocument.getElementById("source").textContent = "source code"
+        }
     }
 
     renderer()
