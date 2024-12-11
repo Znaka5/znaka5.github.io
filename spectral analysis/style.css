@@ -36,3 +36,8 @@ img {
     height: 300px;
     width: 400px;
 }
+
+#heading {
+    text-align: center;
+    font-size: 40px;
+}
