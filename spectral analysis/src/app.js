@@ -146,12 +146,12 @@ Applications: Widely used in forensic science, environmental monitoring, and pha
 ]
 
 let counter = 0
+let language = ''
 function renderer() {
     const currentSlide = slides[index]
     document.getElementById("container").style.opacity = 0
 
     render(template(index, currentSlide, onClick, next, back), document.querySelector("#container"))
-    onClick()
 
     $(document).one('renderComplete', () => {
         $('#container').animate({ opacity: 1 }, 1000);
@@ -162,6 +162,28 @@ function renderer() {
 
 function back(ev) {
     ev.preventDefault()
+    if (language === '' || language === 'EN') {
+        document.getElementById("translate").textContent = "преведи"
+        document.getElementById("next").textContent = "напред"
+        if (index > 0) {
+            document.getElementById("back").textContent = "назад"
+        }
+        if (index >= 6) {
+            document.getElementById("source").textContent = "изходен код"
+        }
+    } else {
+        document.getElementById("tittle").textContent = "spectral analysis"
+        document.getElementById("heading").textContent = "Spectral analysis"
+        document.getElementById("translate").textContent = "translate"
+        document.getElementById("next").textContent = "next"
+        if (index > 0) {
+            document.getElementById("back").textContent = "back"
+        }
+
+        if (index >= 6) {
+            document.getElementById("source").textContent = "source code"
+        }
+    }
     index--
     document.getElementById("container").style.opacity = 0
     renderer()
@@ -169,6 +191,28 @@ function back(ev) {
 
 function next(ev) {
     ev.preventDefault()
+    if (language === '' || language === 'EN') {
+        document.getElementById("translate").textContent = "преведи"
+        document.getElementById("next").textContent = "напред"
+        if (index > 0) {
+            document.getElementById("back").textContent = "назад"
+        }
+        if (index >= 6) {
+            document.getElementById("source").textContent = "изходен код"
+        }
+    } else {
+        document.getElementById("tittle").textContent = "spectral analysis"
+        document.getElementById("heading").textContent = "Spectral analysis"
+        document.getElementById("translate").textContent = "translate"
+        document.getElementById("next").textContent = "next"
+        if (index > 0) {
+            document.getElementById("back").textContent = "back"
+        }
+
+        if (index >= 6) {
+            document.getElementById("source").textContent = "source code"
+        }
+    }
     index++
     document.getElementById("container").style.opacity = 0
     renderer()
@@ -310,6 +354,7 @@ function onClick() {
             document.getElementById("source").textContent = "изходен код"
         }
        
+        language = "BG"
     } else {
         slides = [
             { //introduction page
@@ -452,6 +497,8 @@ function onClick() {
         if (index >= 6) {
             document.getElementById("source").textContent = "source code"
         }
+
+        language = "EN"
     }
 
     renderer()
