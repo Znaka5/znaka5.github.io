@@ -307,7 +307,7 @@ function onClick() {
             document.getElementById("back").textContent = "назад"
         }
         if (index >= 6) {
-             document.getElementById("source").textContent = "изходен код"
+            document.getElementById("source").textContent = "изходен код"
         }
        
     } else {
@@ -450,7 +450,7 @@ function onClick() {
         }
 
         if (index >= 6) {
-            ocument.getElementById("source").textContent = "source code"
+            document.getElementById("source").textContent = "source code"
         }
     }
 
